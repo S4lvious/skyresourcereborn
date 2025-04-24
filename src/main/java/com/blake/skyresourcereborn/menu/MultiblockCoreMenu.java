@@ -56,7 +56,7 @@ public class MultiblockCoreMenu extends AbstractContainerMenu {
                 BlockEntity inputBE = level.getBlockEntity(inputPos);
                 if (inputBE instanceof ItemInputBE input) {
                     input.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-                        this.addSlot(new SlotItemHandler(handler, 0, 44, 34)); // input
+                        this.addSlot(new SlotItemHandler(handler, 0, 40, 28)); // input
                     });
                 }
             }
@@ -65,7 +65,7 @@ public class MultiblockCoreMenu extends AbstractContainerMenu {
                 BlockEntity outputBE = level.getBlockEntity(outputPos);
                 if (outputBE instanceof ItemOutputBE output) {
                     output.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-                        this.addSlot(new SlotItemHandler(handler, 0, 116, 34)); // output
+                        this.addSlot(new SlotItemHandler(handler, 0, 120, 28)); // output
                     });
                 }
             }
@@ -80,12 +80,19 @@ public class MultiblockCoreMenu extends AbstractContainerMenu {
 
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 9; ++col) {
-                this.addSlot(new Slot(playerInventory, col + row * 9 + 9, startX + col * slotSize, startY + row * slotSize));
+                this.addSlot(new Slot(playerInventory,
+                        col + row * 9 + 9,
+                        startX + col * slotSize,
+                        startY + row * slotSize));
             }
         }
 
-        for (int hotbarSlot = 0; hotbarSlot < 9; ++hotbarSlot) {
-            this.addSlot(new Slot(playerInventory, hotbarSlot, startX + hotbarSlot * slotSize, startY + 58));
+        int hotbarY = startY + slotSize * 3 + 2; // = 76 + 54 + 2 = 132
+        for (int i = 0; i < 9; ++i) {
+            this.addSlot(new Slot(playerInventory,
+                    i,
+                    startX + i * slotSize,
+                    hotbarY));
         }
     }
 
