@@ -2,6 +2,7 @@ package com.blake.skyresourcereborn.blockentity;
 
 import com.blake.skyresourcereborn.multiblock.MultiblockManager;
 import com.blake.skyresourcereborn.multiblock.MultiblockStructure;
+import com.blake.skyresourcereborn.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
