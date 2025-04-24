@@ -5,6 +5,7 @@ import com.blake.skyresourcereborn.client.screen.ItemInputScreen;
 import com.blake.skyresourcereborn.client.screen.ItemOutputScreen;
 import com.blake.skyresourcereborn.multiblock.MultiblockManager;
 import com.blake.skyresourcereborn.registry.ModBlocks;
+import com.blake.skyresourcereborn.registry.ModCreativeTab;
 import com.blake.skyresourcereborn.registry.ModMenus;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -32,8 +33,10 @@ public class SkyResourceReborn {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Registrazioni di blocchi e item (spostate in ModBlocks)
-        ModBlocks.BLOCKS.register(modEventBus);
-        ModBlocks.ITEMS.register(modEventBus);
+        // ModBlocks.BLOCKS.register(modEventBus); // unificati in un'unico DeferredRegister.register(bus)
+        // ModBlocks.ITEMS.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModCreativeTab.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus); // ✔️ ci deve stare
         // modEventBus.addListener(this::commonSetup);
         // modEventBus.addListener(this::addCreative);
