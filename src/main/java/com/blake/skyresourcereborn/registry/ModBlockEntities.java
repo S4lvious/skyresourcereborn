@@ -1,7 +1,9 @@
-package com.blake.skyresourcereborn.blockentity;
+package com.blake.skyresourcereborn.registry;
 
 import com.blake.skyresourcereborn.SkyResourceReborn;
-import com.blake.skyresourcereborn.registry.ModBlocks;
+import com.blake.skyresourcereborn.blockentity.ItemInputBE;
+import com.blake.skyresourcereborn.blockentity.ItemOutputBE;
+import com.blake.skyresourcereborn.blockentity.MultiblockCoreBE;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
