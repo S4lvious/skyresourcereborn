@@ -1,6 +1,5 @@
 package com.blake.skyresourcereborn;
 
-import com.blake.skyresourcereborn.client.screen.MultiblockCoreScreen;
 import com.blake.skyresourcereborn.registry.ModBlockEntities;
 import com.blake.skyresourcereborn.client.screen.ItemInputScreen;
 import com.blake.skyresourcereborn.client.screen.ItemOutputScreen;
@@ -22,46 +21,37 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 @Mod(SkyResourceReborn.MODID)
+@SuppressWarnings({ "unused", "removal" })
 public class SkyResourceReborn {
 
     public static final String MODID = "skyresourcereborn";
+
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public SkyResourceReborn() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        // Registrazioni di blocchi e item (spostate in ModBlocks)
         ModBlocks.BLOCKS.register(modEventBus);
         ModBlocks.ITEMS.register(modEventBus);
-        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
-        modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(this::addCreative);
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus); // ✔️ ci deve stare
+        // modEventBus.addListener(this::commonSetup);
+        // modEventBus.addListener(this::addCreative);
         MinecraftForge.EVENT_BUS.register(MultiblockManager.class);
         ModMenus.MENUS.register(modEventBus);
-        MinecraftForge.EVENT_BUS.register(this);
+        // MinecraftForge.EVENT_BUS.register(this);
     }
 
+    // private void commonSetup(final FMLCommonSetupEvent event) {
+    // LOGGER.info("HELLO FROM COMMON SETUP");
+    // }
 
+    // private void addCreative(BuildCreativeModeTabContentsEvent event) {
+    // }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        LOGGER.info("HELLO FROM COMMON SETUP");
-    }
+    // @SubscribeEvent
+    // public void onServerStarting(ServerStartingEvent event) {
+    // LOGGER.info("HELLO from server starting");
+    // }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-    }
-
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("HELLO from server starting");
-    }
-
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-            MenuScreens.register(ModMenus.ITEM_INPUT_MENU.get(), ItemInputScreen::new);
-            MenuScreens.register(ModMenus.ITEM_OUTPUT_MENU.get(), ItemOutputScreen::new);
-            MenuScreens.register(ModMenus.MULTIBLOCK_CORE_MENU.get(), MultiblockCoreScreen::new);
-
-        }
-    }
 }
