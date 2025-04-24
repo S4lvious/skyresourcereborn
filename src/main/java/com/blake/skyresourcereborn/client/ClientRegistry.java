@@ -3,6 +3,7 @@ package com.blake.skyresourcereborn.client;
 import com.blake.skyresourcereborn.SkyResourceReborn;
 import com.blake.skyresourcereborn.client.screen.ItemInputScreen;
 import com.blake.skyresourcereborn.client.screen.ItemOutputScreen;
+import com.blake.skyresourcereborn.client.screen.MultiblockCoreScreen;
 import com.blake.skyresourcereborn.registry.ModMenus;
 
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -19,7 +20,7 @@ public class ClientRegistry {
     public static void onClientSetup(FMLClientSetupEvent event) {
         MenuScreens.register(ModMenus.ITEM_INPUT_MENU.get(), ItemInputScreen::new);
         MenuScreens.register(ModMenus.ITEM_OUTPUT_MENU.get(), ItemOutputScreen::new);
-
+        MenuScreens.register(ModMenus.MULTIBLOCK_CORE_MENU.get(), MultiblockCoreScreen::new);
     }
 
 }
