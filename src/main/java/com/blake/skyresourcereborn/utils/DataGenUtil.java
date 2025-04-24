@@ -26,7 +26,7 @@ public class DataGenUtil {
                 ResourceLocationUtil.getResource("item/" + ResourceLocationUtil.getPath(item)));
     }
 
-    public static ItemModelBuilder itemModel(Item item, ModItemModel b) {
+    public static ItemModelBuilder itemModel(Item item, ItemModelProvider b) {
         return b.withExistingParent(ResourceLocationUtil.getPath(item), ITEM).texture("layer0",
                 ResourceLocationUtil.getResource("item/" + ResourceLocationUtil.getPath(item)));
     }
