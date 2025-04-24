@@ -3,6 +3,7 @@ package com.blake.skyresourcereborn.registry;
 import com.blake.skyresourcereborn.SkyResourceReborn;
 import com.blake.skyresourcereborn.menu.ItemInputMenu;
 import com.blake.skyresourcereborn.menu.ItemOutputMenu;
+import com.blake.skyresourcereborn.menu.MultiblockCoreMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -21,5 +22,9 @@ public class ModMenus {
             MENUS.register("item_output_menu",
                     () -> IForgeMenuType.create((id, inv, buf) -> new ItemOutputMenu(id, inv, buf)));
 
+    public static final RegistryObject<MenuType<MultiblockCoreMenu>> MULTIBLOCK_CORE_MENU =
+            MENUS.register("multiblock_core_menu",
+                    () -> IForgeMenuType.create((windowId, inv, data) ->
+                            new MultiblockCoreMenu(windowId, inv, data)));
 
 }
