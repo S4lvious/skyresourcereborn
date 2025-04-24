@@ -1,6 +1,5 @@
 package com.blake.skyresourcereborn.block;
 
-import com.blake.skyresourcereborn.blockentity.ModBlockEntities;
 import com.blake.skyresourcereborn.blockentity.MultiblockCoreBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
