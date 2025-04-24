@@ -9,20 +9,22 @@ public class MultiblockStructure {
 
     public record BlockOffset(BlockPos offset, ResourceLocation blockId) {}
 
+    public record Recipe(String input, String output, int time) {}
+
     private final ResourceLocation id;
     private final List<BlockOffset> structure;
     private final boolean requiresEnergy;
     private final int energyPerTick;
-    private final MultiblockProcessing processing;
+    private final List<Recipe> recipes;
 
     public MultiblockStructure(ResourceLocation id, List<BlockOffset> structure,
                                boolean requiresEnergy, int energyPerTick,
-                               MultiblockProcessing processing) {
+                               List<Recipe> recipes) {
         this.id = id;
         this.structure = structure;
         this.requiresEnergy = requiresEnergy;
         this.energyPerTick = energyPerTick;
-        this.processing = processing;
+        this.recipes = recipes;
     }
 
     public ResourceLocation id() {
@@ -41,7 +43,7 @@ public class MultiblockStructure {
         return energyPerTick;
     }
 
-    public MultiblockProcessing processing() {
-        return processing;
+    public List<Recipe> recipes() {
+        return recipes;
     }
 }

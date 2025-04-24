@@ -44,25 +44,29 @@ public class MultiblockCoreBE extends BlockEntity {
 
             if (!(inputBE instanceof ItemInputBE input) || !(outputBE instanceof ItemOutputBE output)) return;
             ItemStack current = input.getStack();
-            var expectedItem = ForgeRegistries.ITEMS.getValue(ResourceLocation.parse(structure.processing().input()));
-            if (expectedItem == null || !current.is(expectedItem)) return;
-            if (progress >= structure.processing().time()) {
-                input.removeOne();
-                var outputItem = ForgeRegistries.ITEMS.getValue(ResourceLocation.parse(structure.processing().output()));
-                if (outputItem == null) return;
 
-                ItemStack outStack = new ItemStack(outputItem);
-                output.insert(outStack);
+            for (MultiblockStructure.Recipe recipe : structure.recipes()) {
+                var expectedItem = ForgeRegistries.ITEMS.getValue(ResourceLocation.parse(recipe.input()));
+                if (expectedItem == null || !current.is(expectedItem)) continue;
 
-                System.out.println("Crafting completato: " + outStack);
-                progress = 0;
-            } else {
-                progress++;
-                if (progress % 20 == 0) {
-                    System.out.println("Crafting... [" + progress + "/" + structure.processing().time() + "]");
+                if (progress >= recipe.time()) {
+                    input.removeOne();
+                    var outputItem = ForgeRegistries.ITEMS.getValue(ResourceLocation.parse(recipe.output()));
+                    if (outputItem == null) return;
+
+                    ItemStack outStack = new ItemStack(outputItem);
+                    output.insert(outStack);
+
+                    System.out.println("Crafting completato: " + outStack);
+                    progress = 0;
+                } else {
+                    progress++;
+                    if (progress % 20 == 0) {
+                        System.out.println("Crafting... [" + progress + "/" + recipe.time() + "]");
+                    }
                 }
+                break; // solo una ricetta per tick
             }
-
             break;
         }
     }

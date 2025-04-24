@@ -7,9 +7,8 @@
   ],
   "requires_energy": true,
   "energy_per_tick": 40,
-  "processing": {
-    "input": "minecraft:stone",
-    "output": "minecraft:iron_ore",
-    "time": 100
-  }
+  "processing": [
+    { "input": "minecraft:stone", "output": "minecraft:iron_ore", "time": 100 },
+    { "input": "minecraft:cobblestone", "output": "minecraft:gold_ore", "time": 150 }
+  ]
 }
