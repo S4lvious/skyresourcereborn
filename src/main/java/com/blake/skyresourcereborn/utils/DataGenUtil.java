@@ -10,8 +10,6 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 
 import static com.blake.skyresourcereborn.SkyResourceReborn.MODID;
 
-import com.blake.skyresourcereborn.datagen.client.ModItemModel;
-
 public class DataGenUtil {
 
     public static final ResourceLocation CUTOUT = ResourceLocation.withDefaultNamespace("cutout");
