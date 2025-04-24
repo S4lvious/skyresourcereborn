@@ -1,0 +1,15 @@
+{
+  "structure": [
+    { "offset": [0, 0, 0], "block": "skyresourcereborn:multiblock_core" },
+    { "offset": [1, 0, 0], "block": "skyresourcereborn:item_input" },
+    { "offset": [0, 0, 1], "block": "skyresourcereborn:item_output" },
+    { "offset": [0, -1, 0], "block": "skyresourcereborn:energy_input" }
+  ],
+  "requires_energy": true,
+  "energy_per_tick": 40,
+  "processing": {
+    "input": "minecraft:stone",
+    "output": "minecraft:iron_ore",
+    "time": 100
+  }
+}
