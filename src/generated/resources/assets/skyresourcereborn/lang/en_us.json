@@ -3,5 +3,6 @@
   "block.skyresourcereborn.item_input": "Item Input",
   "block.skyresourcereborn.item_output": "Item Output",
   "block.skyresourcereborn.multiblock_core": "Multiblock Core",
+  "screen.skyresourcereborn.multiblock_core": "Multiblock Recipe",
   "skyresourcereborn.tab": "Sky Resources : Reborn"
 }

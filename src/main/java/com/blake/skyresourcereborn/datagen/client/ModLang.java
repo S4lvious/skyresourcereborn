@@ -19,6 +19,7 @@ public class ModLang extends LanguageProvider {
 
 
         add(MODID + ".tab", "Sky Resources : Reborn");
+        add("screen."+MODID+".multiblock_core", "Multiblock Recipe");
 
         //all blockitems
         ModBlocks.BLOCKITEMS.getEntries().forEach(b -> RegistryToLang("block", b));
